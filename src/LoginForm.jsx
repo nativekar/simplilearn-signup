@@ -1,6 +1,7 @@
 import React from "react";
-import validate from "./validateInfo";
-import useForm from "./useForm";
+import { Link } from "react-router-dom";
+import { validateLogin as validate } from "./validateInfo";
+import useForm from "./useLoginForm";
 import "./Form.css";
 
 const LoginForm = ({ submitForm }) => {
@@ -10,7 +11,7 @@ const LoginForm = ({ submitForm }) => {
   );
 
   return (
-    <div className="form-content-login">
+    <div className="form-content-right">
       <form onSubmit={handleSubmit} className="form" noValidate>
         <h1>Login using your credentials.</h1>
         <div className="form-inputs">
@@ -41,7 +42,7 @@ const LoginForm = ({ submitForm }) => {
           Log in
         </button>
         <span className="form-input-login">
-          Don't have an account? Signup <a href="http://localhost:3000/signup">here</a>
+          Don't have an account? Signup <Link to="/">here</Link>
         </span>
       </form>
     </div>
