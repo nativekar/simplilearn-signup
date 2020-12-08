@@ -1,11 +1,19 @@
-import React from 'react';
-import './Form.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Form.css";
 
-const FormSuccess = () => {
+const FormSuccess = ({ message, showLoginLink }) => {
   return (
-    <div className='form-content-right'>
-      <h1 className='form-success'>We have received your request!</h1>
-      <img className='form-img-2' src='img/img-3.svg' alt='success-image' />
+    <div className="form-content-right" style={{ textAlign: "center" }}>
+      <h1 className="form-success">{message}</h1>
+      {showLoginLink && (
+        <div
+          className="form-input-login"
+          style={{ marginTop: 20, width: "100%" }}
+        >
+          <Link to="/login">Click here</Link> to login
+        </div>
+      )}
     </div>
   );
 };
