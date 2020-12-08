@@ -16,6 +16,3 @@ Will install necessary node modules to run the server script
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-###### `note`
-The app is half baked, please use the url bar in the browser to navigate between login and sign-up.
