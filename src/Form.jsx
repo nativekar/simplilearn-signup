@@ -6,21 +6,18 @@ import FormSuccess from "./FormSuccess";
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  function submitForm() {
-    setIsSubmitted(true);
+  function submitForm(data) {
     fetch("http://localhost:8080/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        username: "username",
-        password: "password",
-      }),
+      body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
+        setIsSubmitted(true);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -29,14 +26,16 @@ const Form = () => {
   return (
     <>
       <div className="form-container">
-        <span className="close-btn">×</span>
         <div className="form-content-left">
           <img className="form-img" src="img/img-2.svg" alt="spaceship" />
         </div>
         {!isSubmitted ? (
           <FormSignup submitForm={submitForm} />
         ) : (
-          <FormSuccess />
+          <FormSuccess
+            message="User registered successfully!"
+            showLoginLink={true}
+          />
         )}
       </div>
     </>
