@@ -1,5 +1,6 @@
 import React from "react";
-import validate from "./validateInfo";
+import { Link } from "react-router-dom";
+import { validateSignup as validate } from "./validateInfo";
 import useForm from "./useForm";
 import "./Form.css";
 
@@ -65,7 +66,7 @@ const FormSignup = ({ submitForm }) => {
           Sign up
         </button>
         <span className="form-input-login">
-          Already have an account? Login <a href="http://localhost:3000/login">here</a>
+          Already have an account? Login <Link to="/login">here</Link>
         </span>
       </form>
     </div>
